@@ -1,4 +1,4 @@
-package com.sara.student.studentappservice;
+package com.sara.student;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.sara.student.studentappservice;
+package com.sara.student;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
