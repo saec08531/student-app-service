@@ -2,12 +2,13 @@ package com.sara.student.controller;
 
 import com.sara.student.dto.StudentDto;
 import com.sara.student.service.StudentService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("api/v1/")
 public class StudentController {
@@ -19,12 +20,18 @@ public class StudentController {
         }
 
         @GetMapping
-        public String display(){
+        public String display() {
                 return "Hello World";
         }
 
         @GetMapping("/students")
-        public List<StudentDto> getStudents(){
+        public List<StudentDto> getStudents() {
                 return studentService.getListOfStudents();
+        }
+
+        @PostMapping
+        public void uploadStudent(@RequestPart(value = "file", required = false) MultipartFile file, @RequestPart StudentDto studentDto) {
+                log.info("Inside upload student method");
+                log.info("Student: {}", studentDto);
         }
 }
